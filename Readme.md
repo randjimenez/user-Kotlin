@@ -29,7 +29,7 @@ Por el momento longitud y latitude deben quedar nulos
 
 ### Docker
 
-Se debe de dockerizar postgres y dejar configurado para poder ejecutarlo en otra maquina.
+Se debe de dockerizar postgres y dejar configurado para poder ejecutarlo en otra maquina, la base de datos.
 
 ### Flyway
 
