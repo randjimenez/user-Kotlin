@@ -1,4 +1,4 @@
-package user.userkt
+package client.userkt
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
