@@ -7,7 +7,7 @@ import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import jakarta.persistence.OneToOne
+import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
 import java.sql.Date
 
@@ -37,6 +37,6 @@ data class ClientEntity(
     var updatedAt: Date,
 
     @JsonManagedReference
-    @OneToOne(mappedBy = "clientDni", cascade = [CascadeType.ALL])
-    val cellPhones: CellPhoneEntity
+    @OneToMany(mappedBy = "clientDni", cascade = [CascadeType.ALL])
+    val cellPhones: List<CellPhoneEntity>
 )

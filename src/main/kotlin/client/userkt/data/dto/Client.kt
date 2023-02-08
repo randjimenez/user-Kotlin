@@ -1,6 +1,5 @@
 package client.userkt.data.dto
 
-import client.userkt.data.entity.CellPhoneEntity
 import client.userkt.data.enums.DniType
 
 data class Client(
@@ -8,5 +7,5 @@ data class Client(
     val name: String,
     val lastName: String,
     val dniType: DniType,
-    val cellPhone: CellPhoneEntity?
+    val cellPhone: List<CellPhone>
 )

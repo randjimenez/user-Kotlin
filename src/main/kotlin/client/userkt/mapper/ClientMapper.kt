@@ -6,15 +6,15 @@ import client.userkt.data.enums.DniType
 import org.springframework.stereotype.Component
 
 @Component
-class ClientMapper(){
+class ClientMapper(private val cellPhoneMapper: CellPhoneMapper) {
 
-    fun toDto(clientEntity: ClientEntity) : Client {
-        return  Client(
+    fun toDto(clientEntity: ClientEntity): Client {
+        return Client(
             clientEntity.dniClient,
             clientEntity.name,
             clientEntity.lastName,
             DniType.valueOf(clientEntity.dniType),
-            clientEntity.cellPhones
+            clientEntity.cellPhones.map { cellPhoneEntity -> cellPhoneMapper.toDto(cellPhoneEntity) }.toList()
         )
     }
 }
