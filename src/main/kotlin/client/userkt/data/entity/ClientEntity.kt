@@ -24,7 +24,7 @@ data class ClientEntity(
     @Column(name = "lastname")
     var lastName: String,
 
-    @Column(name="dni_client")
+    @Column(name = "dni_client")
     var dniClient: Long,
 
     @Column(name = "dnitype")
@@ -38,5 +38,9 @@ data class ClientEntity(
 
     @JsonManagedReference
     @OneToMany(mappedBy = "clientDni", cascade = [CascadeType.ALL])
-    val cellPhones: List<CellPhoneEntity>
+    val cellPhones: List<CellPhoneEntity>,
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "clientDni", cascade = [CascadeType.ALL])
+    val address: List<AddressEntity>
 )
