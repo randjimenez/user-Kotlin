@@ -5,8 +5,14 @@ server:
     include-stacktrace: never
     include-message: never
 spring:
+  devtools:
+    restart:
+      additional-exclude: logs/**
   jpa:
     database: postgresql
+    properties:
+      hibernate:
+        default_schema: postgres
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

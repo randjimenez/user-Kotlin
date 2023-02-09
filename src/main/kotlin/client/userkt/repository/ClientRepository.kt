@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ClientRepository : CrudRepository<ClientEntity, Long> {
-    fun findByDni(dni: Long): ClientEntity?
+    fun findByDniClient(dni: Long): ClientEntity?
 }
