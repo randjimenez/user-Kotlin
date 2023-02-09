@@ -7,5 +7,6 @@ data class Client(
     val name: String,
     val lastName: String,
     val dniType: DniType,
-    val cellPhones: List<CellPhones>
+    val cellPhones: List<CellPhones>,
+    val address: List<Address>
 )
