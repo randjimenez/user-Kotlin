@@ -1,6 +1,7 @@
 package client.userkt.exceptions
 
 import client.userkt.exceptions.enums.FailedResponse
+import org.postgresql.util.PSQLException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
@@ -30,5 +31,11 @@ class ExceptionHandlerErrors : ResponseEntityExceptionHandler() {
     fun cellPhoneListSizeException(): ResponseEntity<Any> {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
             .body(MessageErrorResponse(FailedResponse.PHONE_LIST_SIZE.message))
+    }
+
+    @ExceptionHandler(value = [(PSQLException::class)])
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun sqlException(): ResponseEntity<Any> {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build()
     }
 }
