@@ -2,6 +2,7 @@ package client.userkt.service.impl
 
 import client.userkt.data.entity.ClientEntity
 import client.userkt.exceptions.NotClientException
+import client.userkt.exceptions.UserAlreadyExistException
 import client.userkt.repository.ClientRepository
 import client.userkt.service.ClientService
 import org.springframework.stereotype.Service
@@ -16,6 +17,15 @@ class ClientServiceImpl(val clientRepository: ClientRepository) : ClientService 
             return client
         } else {
             throw NotClientException()
+        }
+    }
+
+    override fun createClient(client: ClientEntity): ClientEntity {
+        val clientExist: ClientEntity? = clientRepository.findByDniClient(client.dniClient)
+        if (clientExist == null) {
+            return clientRepository.save(client)
+        } else {
+            throw UserAlreadyExistException()
         }
     }
 }

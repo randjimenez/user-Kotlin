@@ -14,4 +14,13 @@ class CellPhoneMapper {
             cellPhoneEntity.principal
         )
     }
+
+    fun toEntity(cellPhone: CellPhones, dni: Long): CellPhoneEntity {
+        return CellPhoneEntity(
+            cellPhone.id,
+            cellPhone.cellPhone,
+            cellPhone.principal,
+            dni
+        )
+    }
 }

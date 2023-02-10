@@ -10,8 +10,21 @@ class AddressMapper {
         return Address(
             addressEntity.id,
             addressEntity.address,
+            addressEntity.city,
             addressEntity.longitude,
             addressEntity.latitude
         )
+    }
+
+    fun toEntity(address: Address, dni: Long): AddressEntity {
+        return AddressEntity(
+            address.id,
+            address.address,
+            address.city,
+            address.longitude,
+            address.latitude,
+            dni
+        )
+
     }
 }

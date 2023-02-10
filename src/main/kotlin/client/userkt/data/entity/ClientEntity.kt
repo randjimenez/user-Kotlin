@@ -1,46 +1,37 @@
 package client.userkt.data.entity
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
 import jakarta.persistence.OneToMany
 import jakarta.persistence.Table
-import java.sql.Date
+import java.util.Date
 
 @Entity
 @Table(name = "client")
 data class ClientEntity(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    var id: Long = 0,
+    val dniClient: Long,
 
-    var name: String,
+    val name: String,
 
-    @Column(name = "lastname")
-    var lastName: String,
+    val middleName: String? = null,
 
-    @Column(name = "dni_client")
-    var dniClient: Long,
+    val lastName: String,
 
-    @Column(name = "dnitype")
-    var dniType: String,
+    val secondLastName: String? = null,
 
-    @Column(name = "createdat")
-    var createdAt: Date,
+    val dniType: String,
 
-    @Column(name = "updateat")
-    var updatedAt: Date,
+    val updateAt: Date,
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "clientDni", cascade = [CascadeType.ALL])
-    val cellPhones: List<CellPhoneEntity>,
+    @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
+    @JoinColumn(name = "dniClient")
+    val cellPhones: List<CellPhoneEntity>? = null,
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "clientDni", cascade = [CascadeType.ALL])
-    val address: List<AddressEntity>
+    @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
+    @JoinColumn(name = "dniClient")
+    val address: List<AddressEntity>? = null
 )
