@@ -28,4 +28,9 @@ class ClientServiceImpl(val clientRepository: ClientRepository) : ClientService 
             throw UserAlreadyExistException()
         }
     }
+
+    override fun updateClient(client: ClientEntity): ClientEntity {
+        clientRepository.findByDniClient(client.dniClient) ?: throw NotClientException()
+        return clientRepository.save(client)
+    }
 }

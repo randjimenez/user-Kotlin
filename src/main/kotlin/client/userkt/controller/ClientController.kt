@@ -7,6 +7,7 @@ import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -24,5 +25,11 @@ class ClientController(private val clientService: ClientService,
     fun createUser(@Valid @RequestBody client: Client): ResponseEntity<Client> {
         return ResponseEntity.ok()
             .body(clientMapper.toDto(clientService.createClient(clientMapper.toEntity(client))))
+    }
+
+    @PutMapping("update/info/")
+    fun updateUser(@Valid @RequestBody client: Client): ResponseEntity<Client> {
+        return ResponseEntity.ok()
+            .body(clientMapper.toDto(clientService.updateClient(clientMapper.toEntity(client))))
     }
 }
