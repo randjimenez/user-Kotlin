@@ -14,4 +14,15 @@ class AddressMapper {
             addressEntity.latitude
         )
     }
+
+    fun toEntity(address: Address, dni: Long): AddressEntity {
+        return AddressEntity(
+            address.id,
+            address.longitude,
+            address.latitude,
+            address.address,
+            dni
+        )
+
+    }
 }

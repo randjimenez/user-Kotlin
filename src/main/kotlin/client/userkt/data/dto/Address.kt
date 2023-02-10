@@ -5,5 +5,4 @@ data class Address(
     val address: String,
     val longitude: String = "",
     val latitude: String = "",
-
     )
