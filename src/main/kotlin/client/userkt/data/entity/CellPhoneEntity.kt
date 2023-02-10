@@ -15,12 +15,12 @@ data class CellPhoneEntity(
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,
 
-    var cellPhone: String,
+    val cellPhone: String,
 
-    var principal: Boolean,
+    val principal: Boolean,
 
-    var dniClient: Long,
+    val dniClient: Long,
 
-    var updateAt: Date = Date(),
+    val updateAt: Date = Date(),
 ){
 }

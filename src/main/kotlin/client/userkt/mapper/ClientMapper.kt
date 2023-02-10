@@ -16,7 +16,9 @@ class ClientMapper(
         return Client(
             clientEntity.dniClient,
             clientEntity.name,
+            clientEntity.middleName,
             clientEntity.lastName,
+            clientEntity.secondLastName,
             DniType.valueOf(clientEntity.dniType),
             clientEntity.cellPhones?.map { cellPhoneEntity -> cellPhoneMapper.toDto(cellPhoneEntity) }?.toList(),
             clientEntity.address?.map { addressEntity -> addressMapper.toDto(addressEntity) }?.toList()
@@ -27,7 +29,9 @@ class ClientMapper(
         return ClientEntity(
             client.dni,
             client.name,
+            client.middleName,
             client.lastName,
+            client.secondLastName,
             client.dniType.toString(),
             Date(),
             client.cellPhones?.map { cellPhone -> cellPhoneMapper.toEntity(cellPhone, client.dni) }?.toList(),

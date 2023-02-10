@@ -10,6 +10,7 @@ class AddressMapper {
         return Address(
             addressEntity.id,
             addressEntity.address,
+            addressEntity.city,
             addressEntity.longitude,
             addressEntity.latitude
         )
@@ -18,9 +19,10 @@ class AddressMapper {
     fun toEntity(address: Address, dni: Long): AddressEntity {
         return AddressEntity(
             address.id,
+            address.address,
+            address.city,
             address.longitude,
             address.latitude,
-            address.address,
             dni
         )
 

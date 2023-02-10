@@ -1,4 +1,6 @@
 package client.userkt.exceptions
 
-class NotClientException(message: String = ExceptionMessages.NOT_CLIENT.message) : Exception(message) {
+import client.userkt.exceptions.enums.FailedResponse
+
+class NotClientException(message: String = FailedResponse.NOT_CLIENT.message) : Exception(message) {
 }

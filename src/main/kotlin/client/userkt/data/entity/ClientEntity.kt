@@ -13,15 +13,19 @@ import java.util.Date
 data class ClientEntity(
 
     @Id
-    var dniClient: Long,
+    val dniClient: Long,
 
-    var name: String,
+    val name: String,
 
-    var lastName: String,
+    val middleName: String? = null,
 
-    var dniType: String,
+    val lastName: String,
 
-    var updateAt: Date,
+    val secondLastName: String? = null,
+
+    val dniType: String,
+
+    val updateAt: Date,
 
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     @JoinColumn(name = "dniClient")

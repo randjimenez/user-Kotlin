@@ -1,4 +1,6 @@
 package client.userkt.exceptions
 
-class UserAlreadyExistException(message: String = ExceptionMessages.USER_EXIST.message) : Exception(message) {
+import client.userkt.exceptions.enums.FailedResponse
+
+class UserAlreadyExistException(message: String = FailedResponse.USER_EXIST.message) : Exception(message) {
 }

@@ -3,6 +3,7 @@ package client.userkt.controller
 import client.userkt.data.dto.Client
 import client.userkt.mapper.ClientMapper
 import client.userkt.service.ClientService
+import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -20,7 +21,7 @@ class ClientController(private val clientService: ClientService,
     }
 
     @PostMapping("create/")
-    fun createUser(@RequestBody client: Client): ResponseEntity<Client> {
+    fun createUser(@Valid @RequestBody client: Client): ResponseEntity<Client> {
         return ResponseEntity.ok()
             .body(clientMapper.toDto(clientService.createClient(clientMapper.toEntity(client))))
     }

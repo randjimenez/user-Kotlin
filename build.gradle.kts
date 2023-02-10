@@ -31,6 +31,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation ("org.postgresql:postgresql:42.5.2")
     implementation("org.flywaydb:flyway-core:9.14.1")
+    implementation("org.springframework.boot:spring-boot-starter-validation:3.0.2")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.projectlombok:lombok")

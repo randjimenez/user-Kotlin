@@ -12,15 +12,17 @@ data class AddressEntity(
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Long = 0,
 
-    var longitude: String = "",
+    val address: String,
 
-    var latitude: String = "",
+    val city: String,
 
-    var address: String,
+    val longitude: String,
 
-    var dniClient: Long,
+    val latitude: String,
 
-    var updateAt: Date = Date(),
+    val dniClient: Long,
+
+    val updateAt: Date = Date(),
 
     ) {
 }
