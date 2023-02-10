@@ -33,5 +33,7 @@ data class ClientEntity(
 
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     @JoinColumn(name = "dniClient")
-    val address: List<AddressEntity>? = null
+    val address: List<AddressEntity>? = null,
+
+    var enabled: Boolean = true
 )

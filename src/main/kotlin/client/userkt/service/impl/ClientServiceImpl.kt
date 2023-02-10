@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service
 @Service
 class ClientServiceImpl(val clientRepository: ClientRepository) : ClientService {
 
-    override fun findUser(dni: Long): ClientEntity {
-        val client: ClientEntity? = clientRepository.findByDniClient(dni)
+    override fun findClient(dni: Long): ClientEntity {
+        val client: ClientEntity? = clientRepository.findByDniClientAndEnabled(dni)
         if (client != null) {
             return client
         } else {
@@ -30,7 +30,15 @@ class ClientServiceImpl(val clientRepository: ClientRepository) : ClientService 
     }
 
     override fun updateClient(client: ClientEntity): ClientEntity {
-        clientRepository.findByDniClient(client.dniClient) ?: throw NotClientException()
+        clientRepository.findByDniClientAndEnabled(client.dniClient) ?: throw NotClientException()
         return clientRepository.save(client)
+    }
+
+    override fun deleteClient(dni: Long) {
+        val client = clientRepository.findByDniClient(dni)
+        if (client != null) {
+            client.enabled = false
+            clientRepository.save(client)
+        }
     }
 }

@@ -5,6 +5,7 @@ import client.userkt.mapper.ClientMapper
 import client.userkt.service.ClientService
 import jakarta.validation.Valid
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.PutMapping
@@ -18,7 +19,7 @@ class ClientController(private val clientService: ClientService,
 
     @GetMapping("find/by/id")
     fun findUserByDni(@RequestParam dni: Long): ResponseEntity<Client> {
-        return ResponseEntity.ok().body(clientMapper.toDto(clientService.findUser(dni)))
+        return ResponseEntity.ok().body(clientMapper.toDto(clientService.findClient(dni)))
     }
 
     @PostMapping("create/")
@@ -31,5 +32,11 @@ class ClientController(private val clientService: ClientService,
     fun updateUser(@Valid @RequestBody client: Client): ResponseEntity<Client> {
         return ResponseEntity.ok()
             .body(clientMapper.toDto(clientService.updateClient(clientMapper.toEntity(client))))
+    }
+
+    @DeleteMapping("delete/terminated/")
+    fun deleteUser(@RequestParam dni: Long): ResponseEntity<Any> {
+        clientService.deleteClient(dni)
+        return ResponseEntity.ok().build()
     }
 }
