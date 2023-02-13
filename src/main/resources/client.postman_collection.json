@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "22aef726-1ffd-463b-80a7-1c3742ebc30e",
+    "name": "Client",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "find client by Dni",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/client/find/by/id?dni=10676",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "find",
+            "by",
+            "id"
+          ],
+          "query": [
+            {
+              "key": "dni",
+              "value": "10676"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create-client",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dni\": 10676,\n    \"name\": \"rafael\",\n    \"lastName\": \"Jimenez\",\n    \"dniType\": \"CC\",\n    \"cellPhones\": [\n        {\n            \"cellPhone\": \"3233263431\",\n            \"principal\": true\n        },\n        {\n            \"cellPhone\": \"3007137262\",\n            \"principal\": false\n        }\n    ],\n    \"address\": [\n        {\n            \"address\": \"a\",\n            \"city\": \"tocancipa\",\n            \"longitude\": \"1\",\n            \"latitude\": \"2\"\n        },\n        {\n            \"address\": \"b\",\n            \"city\": \"tocancipa\",\n            \"longitude\": \"2\",\n            \"latitude\": \"1\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/client/create/",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "create",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update-client Copy",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"dni\": 10676,\n    \"name\": \"rafael\",\n    \"middleName\": null,\n    \"lastName\": \"Jimenez\",\n    \"secondLastName\": null,\n    \"dniType\": \"CC\",\n    \"cellPhones\": [\n        {\n            \"id\": 1,\n            \"cellPhone\": \"3233263431\",\n            \"principal\": true\n        },\n        {\n            \"id\": 2,\n            \"cellPhone\": \"3007137262\",\n            \"principal\": false\n        }\n    ],\n    \"address\": [\n        {\n            \"id\": 1,\n            \"address\": \"a\",\n            \"city\": \"tocancipa\",\n            \"longitude\": \"1\",\n            \"latitude\": \"2\"\n        },\n        {\n            \"id\": 2,\n            \"address\": \"b\",\n            \"city\": \"tocancipa\",\n            \"longitude\": \"2\",\n            \"latitude\": \"1\"\n        }\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/client/update/info/",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "update",
+            "info",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete Client by Dni",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/client/delete/terminated/?dni=10676",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "delete",
+            "terminated",
+            ""
+          ],
+          "query": [
+            {
+              "key": "dni",
+              "value": "10676"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
