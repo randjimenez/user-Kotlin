@@ -36,8 +36,18 @@ Se debe de dockerizar postgres y dejar configurado para poder ejecutarlo en otra
 Se debe configurar Flyway para manejar las versiones de SQL.
 
 ## Tecnologias
+
 * Kotlin
 * Spring
 * Docker
 * PostgresSQL
 * Flyway
+
+## Ejecutar el servicio
+
+Para ejecutar el servicio se debe de utilizar el comando y se puede acceder usando el postman que se encuentran en el
+archivo client.postman_collection.json
+
+```
+ docker-compose up
+```

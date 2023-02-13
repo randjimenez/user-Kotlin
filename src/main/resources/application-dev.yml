@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: "/client/"
+  error:
+    include-stacktrace: never
+    include-message: never
+spring:
+  devtools:
+    restart:
+      additional-exclude: logs/**
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        default_schema: postgres
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://db:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    url: jdbc:postgresql://db:5432/postgres
+    schemas: postgres
+    user: postgres
+    password: postgres
